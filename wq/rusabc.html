@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Word quiz</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script src="wordquiz.js" type="text/javascript"></script>
+<!--
+Here we have stuff which is automatically inserted
+--> 
+<script src="rusabc.js" type="text/javascript"></script>
+
+
+<style type="text/css">
+h1, h2, h3, h4, em { font-variant: small-caps }
+h1, h2, h3 { text-align: center }
+h1 {font-size: 150% }
+h2 {font-size: 130% }
+h3 {margin-top: 12px;
+margin-bottom: 5px }
+
+h5 {font-size: 60%;
+letter-spacing: 3px;
+margin-top: 5px;
+margin-bottom: 5px }
+
+td.mainword {font-size: 300%;
+letter-spacing: 3px;
+margin-top: 5px;
+margin-bottom: 5px;
+border-width: 5px;
+background-color: #FFEEEE }
+
+td.word:hover { background-color : #ffe7b6 }
+
+p,li { text-align: center;
+font-size: 80% }
+select {font-variant: small-caps;
+font-size : 70%;
+letter-spacing: 3px }
+
+</style>
+</head>
+
+
+<body>
+
+<script type="text/javascript">
+<!--
+wq = new WordQuiz(4);
+
+function showWords() {
+ lang1 =  document.getElementById("lang1").value;
+ lang2 =  document.getElementById("lang2").value;
+ wq.setLangs(lang1, lang2);
+
+ var s = wq.getStrings();
+ document.getElementById("mainword").innerHTML = s[0];
+ document.getElementById("word0").innerHTML = s[1];
+ document.getElementById("word1").innerHTML = s[2];
+ document.getElementById("word2").innerHTML = s[3];
+ document.getElementById("word3").innerHTML = s[4];
+}
+
+function defaultLangs() {
+   document.getElementById("lang1").value = deflang2;
+   document.getElementById("lang2").value = deflang1;
+}
+
+function choice(n) {
+ if (wq.isRight(n) == true) {
+  wq.nextWord();
+  showWords();
+ }
+}
+// -->
+</script>
+
+
+
+<table align="center" id="words" border="0" width="80%">
+<tr>
+<td colspan="1" align="center" valign="middle">
+&nbsp;
+</td>
+<td colspan="3" align="center" valign="middle">
+
+<h5>Select languages:</h5>
+
+
+<form action="">
+<script type="text/javascript">
+<!--
+document.writeln('<select id="lang1" onchange="showWords()">');
+for(var i=0; i < langs.length; i++) {
+ var s = "<option value=" + langs[i] + ">" + langs[i] + "<\/option>"
+ document.writeln(s)
+}
+document.writeln('<\/select>');
+
+document.writeln('<select id="lang2" onchange="showWords()">');
+for(var i=0; i < langs.length; i++) {
+ var s = "<option value=" + langs[i] + ">" + langs[i] + "<\/option>"
+ document.writeln(s);
+}
+document.writeln('<\/select>');
+// -->
+</script>
+</form>
+</td>
+</tr>
+
+<tr>
+<td class="mainword" id="mainword" height="200px" colspan="4" align="center" valign="middle">&nbsp;</td></tr>
+<tr>
+<td class="word" id="word0" width="25%" height="40px" align="center" valign="middle" onclick="choice(0);">&nbsp;</td>
+
+<td class="word" id="word1" width="25%" height="40px" align="center" valign="middle" onclick="choice(1);">&nbsp;</td>
+
+<td class="word" id="word2" width="25%" height="40px" align="center" valign="middle" onclick="choice(2);">&nbsp;</td>
+
+<td class="word" id="word3" width="25%" height="40px" align="center" valign="middle" onclick="choice(3);">&nbsp;</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+defaultLangs();
+wq.nextWord();
+showWords();
+</script>
+
+
+
+</body>
+</html>
